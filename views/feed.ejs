@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/stylesheets/style.css">
+</head>
+<body class="select-none">
+    <!-- Navbar -->
+   <div class="navbar h-[5rem] flex p-4 justify-between items-center ">
+
+
+    <div class="left  flex items-center   w-[50%] h-full">
+        <a href="/profile">
+            <img class="logo h-7" src="/images/pinterest-logo.svg" alt="">
+        </a>
+    </div>
+
+
+
+    <div class="right w-[50%] h-full flex justify-end items-center ">
+
+        <a class="font-medium hover:underline mr-8" href="/feed">Feed</a>
+
+
+        <% if (isLoggedIn) { %>
+            <a href="/logout" class="h-[40px] transition-all scale-100 duration-75 ease-in-out active:scale-95 w-[80px] rounded-full bg-pin-red text-white font-medium hover:bg-pin-redh  justify-center items-center  flex">Logout</a>
+            <a href="/profile" class="nav-profile border-2 cursor-pointer border-purple-950 h-8 w-8 rounded-full overflow-hidden ml-6 mr-4 flex justify-center items-center"><img class="overflow-hidden" src="/images/uploads/<%= user.profileimage %>" alt=""></a>
+        <% } else { %>
+            <div class="log-sign flex gap-2">
+                <a class="h-[40px] w-[80px] rounded-full bg-pin-red text-white font-medium hover:bg-pin-redh  justify-center items-center  flex " href="/login">Login</a>
+                <a class="h-[40px] w-[80px] rounded-full bg-gray-500 text-white font-medium hover:bg-gray-700  justify-center items-center  flex" href="/register">Sign Up</a>
+            </div>
+        <% } %>
+
+
+
+
+    </div>
+
+    
+</div>
+
+
+
+<div class=" mt-8 flex-wrap h-screen w-full flex gap-8  p-8 ">
+
+
+    <% (posts || []).forEach(function(elem) { %>
+        <div class="post flex flex-col rounded-lg h-[10rem] w-[10rem]">
+            <div class="post-img w-full h-[70%]">
+                <img class="h-[110px] w-[10rem]" src="/images/uploads/<%= elem.image %>" alt="">
+            </div>
+    
+            <div class="post-cap w-full h-[30%] relative p-1">
+                <p><%= elem.title || "No caption" %></p>
+            </div>
+            <div class="post-cap w-full text-sm text-gray-400 h-[30%] relative">
+                <p><%= elem.user.username || "No caption" %></p>
+            </div>
+        </div>  
+    <% }) %>
+    
+
+
+   
+
+
+</div>
+
+</body>
+</html>

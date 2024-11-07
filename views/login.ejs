@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/stylesheets/style.css">
+    <title>pin-login</title>
+</head>
+<body class="bg-my-black overflow-hidden  justify-center items-center h-screen selection:bg-pin-red">
+
+
+
+    <!-- Navbar -->
+    <div class="navbar h-[5rem] flex p-4 justify-between items-center bg-white ">
+
+
+        <div class="left  flex items-center justify-center   w-full h-full">
+            <a href="/">
+                <img class="logo h-7" src="/images/pinterest-logo.svg" alt="">
+            </a>
+        </div>
+
+
+
+        <!-- <div class="right w-[50%] h-full flex justify-end items-center ">
+
+            <a class="font-medium hover:underline mr-8" href="/about">About</a>
+
+            <div class="log-sign flex gap-2">
+                <a class="h-[40px] w-[80px] rounded-full bg-pin-red text-white font-medium hover:bg-pin-redh transition-all duration-75 ease-in-out active:scale-95 scale-100  justify-center items-center  flex " href="/login">Login</a>
+                <a class="h-[40px] w-[80px] rounded-full bg-gray-500 text-white font-medium hover:bg-gray-700 transition-all duration-75 ease-in-out active:scale-95 scale-100  justify-center items-center  flex" href="/register">Sign Up</a>
+            </div>
+
+        </div> -->
+    </div>
+
+
+
+    <div class="b-2 w-full h-full flex justify-center mt-14">
+        <div class="login-box p-4  flex flex-col  items-center h-[32rem] rounded-md shadow-my-shadow w-[25rem] border-2 border-white bg-white">
+    
+            <img class="h-8 mb-5" src="/images/pin-logo.png" alt="">
+            <h1 class="text-center text-3xl font-medium mb-5 ">Welcome To Pin</h1>
+    
+            <form action="/login" method="post"  class=" w-[75%] flex flex-col gap-2" >
+                <p class="text-my-black2 text-sm">Username</p>
+                <input name="username" class=" border-my-black2  rounded-lg w-full h-12 p-4 border-2  " placeholder="Username" type="text">
+    
+                <p class="text-my-black2 text-sm">Password</p>
+                <input name="password" class=" border-my-black2 rounded-lg w-full h-12 p-4  border-2 " placeholder="Password" type="password">
+                
+    
+                <input class="w-full mt-6 text-white bg-pin-red transition-all duration-75 ease-in-out active:scale-95 scale-100 hover:bg-pin-redh h-10 cursor-pointer  rounded-full " placeholder="Password" value="Submit" type="submit">
+    
+                
+            </form>
+            <p class="text-black text-center mt-8 ">Not on Pinterest Yet?  <a href="/register" class=" hover:text-pin-red"> Register</a></p>
+            
+        </div>
+    </div>
+
+    <script src="/javascripts/logic.js"></script>
+</body>
+</html>

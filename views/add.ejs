@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/stylesheets/style.css">
+    <link rel="stylesheet" href="/stylesheets/style2.css">
+</head>
+<body class="w-full h-screen overflow-hidden selection:bg-pin-red selection:text-white">
+    <!-- Navbar -->
+    <div class="navbar h-[5rem] flex p-4 justify-between items-center ">
+
+
+        <div class="left  flex items-center   w-[50%] h-full">
+            <a href="/">
+                <img class="logo h-7" src="/images/pinterest-logo.svg" alt="">
+            </a>
+        </div>
+
+
+
+        <div class="right w-[50%] h-full flex justify-end items-center ">
+
+            <a class="font-medium hover:underline mr-8" href="/about">About</a>
+
+
+            <% if (isLoggedIn) { %>
+                <a href="/logout" class="h-[40px] transition-all scale-100 duration-75 ease-in-out active:scale-95 w-[80px] rounded-full bg-pin-red text-white font-medium hover:bg-pin-redh  justify-center items-center  flex">Logout</a>
+                <a href="/profile" class="nav-profile border-2 cursor-pointer border-purple-950 h-8 w-8 rounded-full overflow-hidden ml-6 mr-4 flex justify-center items-center"><img class="overflow-hidden" src="/images/uploads/<%= user.profileimage %>" alt=""></a>
+            <% } else { %>
+                <div class="log-sign flex gap-2">
+                    <a class="h-[40px] w-[80px] rounded-full bg-pin-red text-white font-medium hover:bg-pin-redh  justify-center items-center  flex " href="/login">Login</a>
+                    <a class="h-[40px] w-[80px] rounded-full bg-gray-500 text-white font-medium hover:bg-gray-700  justify-center items-center  flex" href="/register">Sign Up</a>
+                </div>
+            <% } %>
+
+
+
+
+        </div>
+    </div>
+
+    <div class="create-p-box relative  w-full h-full flex justify-center items-center">
+        
+
+        <div class="post-box  flex w-1/2 h-[35rem] absolute items-center top-8">
+            <h1 class="absolute top-0 text-center font-medium text-2xl mb-2 border-b-2 w-full">Create New Post</h1>
+
+            <div class="left p-8 relative  w-[100%] h-[90%]">
+
+                <form class="add-post-form flex flex-col gap-6 items-center" enctype="multipart/form-data"   action="/createpost" method="post">
+                    <input type="file" name="postimg" id="post-select">
+                    <input class="border-my-black2  rounded-lg w-[80%] h-12 p-4 border-2" type="text" name="title" placeholder="Title" id="">
+                    <input class="h-[40px] transition-all scale-100 duration-75 ease-in-out active:scale-95 w-[80px] rounded-full bg-pin-red text-white font-medium hover:bg-pin-redh  justify-center items-center  flex" type="submit">
+                </form>
+            </div>
+
+
+            <!-- <div class="right relative border-2 border-purple-800 w-[50%] h-[90%]">
+
+            </div> -->
+        </div>
+        
+    </div>
+
+
+
+
+</body>
+</html>

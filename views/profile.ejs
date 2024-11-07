@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>pin-profile</title>
+    <link rel="stylesheet" href="/stylesheets/style.css">
+    <link rel="stylesheet" href="/stylesheets/style2.css">
+</head>
+<body class="select-none w-full">
+
+    <!-- Navbar -->
+    <div class="navbar h-[5rem] flex p-4 justify-between items-center ">
+
+
+        <div class="left  flex items-center   w-[50%] h-full">
+            <a href="/profile">
+                <img class="logo h-7" src="/images/pinterest-logo.svg" alt="">
+            </a>
+        </div>
+
+
+
+        <div class="right w-[50%] h-full flex justify-end items-center ">
+
+            <a class="font-medium hover:underline mr-8" href="/feed">Feed</a>
+
+
+            <% if (isLoggedIn) { %>
+                <a href="/logout" class="h-[40px] transition-all scale-100 duration-75 ease-in-out active:scale-95 w-[80px] rounded-full bg-pin-red text-white font-medium hover:bg-pin-redh  justify-center items-center  flex">Logout</a>
+                <div class="nav-profile border-2 cursor-pointer border-purple-950 h-8 w-8 rounded-full overflow-hidden ml-6 mr-4 flex justify-center items-center"><img class="overflow-hidden" src="/images/uploads/<%= user.profileimage %>" alt=""></div>
+            <% } else { %>
+                <div class="log-sign flex gap-2">
+                    <a class="h-[40px] w-[80px] rounded-full bg-pin-red text-white font-medium hover:bg-pin-redh  justify-center items-center  flex " href="/login">Login</a>
+                    <a class="h-[40px] w-[80px] rounded-full bg-gray-500 text-white font-medium hover:bg-gray-700  justify-center items-center  flex" href="/register">Sign Up</a>
+                </div>
+            <% } %>
+
+
+
+
+        </div>
+
+        
+    </div>
+
+
+    <div class="profile-d w-full flex justify-center items-center mt-4  flex-col">
+        <div class="profile-pic  rounded-full  h-28 w-28">
+
+            <form id="uploadform" hidden action="/fileupload" method="post" enctype="multipart/form-data">
+                <input  type="file" name="image">
+            </form>
+
+            
+                <!-- <div class=" profile-img-upload absolute flex justify-center items-center  top-[11.52rem] right-[47rem] z-20 h-8 w-8 border-2 border-red-950 bg-white rounded-full">
+                    <img class="absolute z-20 " src="/images/edit-circle.svg" alt="">
+                </div> -->
+
+
+
+            <img class=" profile-img-upload  main-profile-img scale-100 hover:scale-105 transition-all rounded-full h-[112px] w-[112px] overflow-hidden duration-300 ease-in-out active:scale-90" src="/images/uploads/<%= user.profileimage %>" alt="">
+        </div>
+        
+        <p class="name font-medium text-xl capitalize mt-4"> <%= user.username %></p>
+        <p class="name  text-sm capitalize mt-2"> <%= user.posts.length %> Pins</p>
+
+        <div class="flex gap-4">
+            <a class="h-[40px] w-[100px] p-2 mt-4 rounded-full bg-pin-red text-white font-medium hover:bg-pin-redh transition-all duration-75 ease-in-out  justify-center items-center scale-100 active:scale-95  flex" href="">Edit Profile</a>
+            <a class="h-[40px] w-[120px]  mt-4 rounded-full bg-pin-red text-white font-medium hover:bg-pin-redh transition-all duration-75 ease-in-out  justify-center items-center scale-100 active:scale-95  flex" href="/add">Add new Pin</a>
+        </div>
+
+    </div>
+
+    <div class="devider w-full h-[1.5px] bg-black mt-8"></div>
+
+
+    <div class="  mt-8 h-80 w-full flex gap-8  p-8 ">
+
+        <div class="post  flex flex-col  rounded-lg h-[10rem] w-[10rem]">
+            <div class="post-img w-full h-[70%]">
+                <img class=" h-[110px] w-[10rem]" src="/images/uploads/<%= user?.posts[0]?.image %>" alt="">
+            </div>
+
+            <a href="/show/posts" class="post-cap w-full h-[30%] relative border-2 p-1">
+                <p>cap</p>
+            </a>
+        </div>
+
+       
+
+
+    </div>
+
+
+    <script src="/javascripts/logic.js"></script>
+</body>
+</html>
